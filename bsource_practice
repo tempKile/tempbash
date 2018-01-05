@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#
+# bash test
+# author: kd
+#
+# Experimenting with a bash script
+#
+
+# # # # # # # # # # # # # # # #
+# Macros                      #
+# # # # # # # # # # # # # # # #
+
+SOURCE_DIRECT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+echo -e "three two one let's jam";
+ls -la ${SOURCE_DIRECT}/hey;
