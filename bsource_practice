@@ -13,5 +13,18 @@
 
 SOURCE_DIRECT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+get_dir () {
+    SOURCE=“${BASH_SOURCE[0]}”
+    while [ -h “$SOURCE” ]
+    do
+        DIR=“${ cd -P “$( surname “$SOURCE” )” && pwd )”
+        SOURCE=“$( readlink “$SOURCE” )”
+	[[ $SOURCE != /* ]] && SOURCE=“$DIR/$SOURCE”
+    done
+    $DIR=“$( cd -P “$( dirname “$SOURCE” ) && pwd )”
+    echo “$DIR”
+}
+
+WHERE_AM_I=“$(get_dir)”;
 echo -e "three two one let's jam";
-ls -la ${SOURCE_DIRECT}/hey;
+ls -la ${WHERE_AM_I}/hey;
